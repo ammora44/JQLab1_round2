@@ -67,7 +67,7 @@ body {
     cursor: not-allowed;
 }
 
-.table:hover {
+.table.available:hover {
     background-color: white;
 }
 
@@ -132,4 +132,18 @@ input {
     color: #CCC;
     float: right;
     margin-right: 10px;
+}
+
+.hidden {
+    width: 40px;
+    height: 20px;
+    background-color: #ADAAAA;
+    border: 2px solid black;  
+    z-index: 10000;  
+    overflow: auto;
+    position: absolute;
+}
+
+.visible {
+    visibility: hidden;
 }
