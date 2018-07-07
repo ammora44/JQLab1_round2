@@ -4,10 +4,10 @@ body {
     font-weight: 500;
 }
 
+/* Title Info */
 .head, .blah {
     text-align: center;
 }
-
 
 .header {
     color: #E34E45;
@@ -23,6 +23,8 @@ body {
     margin-top: 5px;
 }
 
+
+/* Container with tables */
 .floorPlan {
     background-color: #EEE;
     height: 270px;
@@ -35,9 +37,8 @@ body {
     flex-wrap: wrap;
 }
 
-/* Tables/Circles */
-
-.table  {
+/* Each Table */
+.available  {
     height: 60px;
     width: 60px;
     line-height: 60px;
@@ -48,11 +49,11 @@ body {
     font-size: .8em;
     margin: 15px;
     position: relative;
-    z-index: 2;
-    cursor: crosshair;
+    cursor: pointer;
+    outline: none;
 }
 
-.table.reserved {
+.reserved {
     height: 60px;
     width: 60px;
     line-height: 60px;
@@ -63,15 +64,14 @@ body {
     font-size: .8em;
     margin: 15px;
     position: relative;
-    z-index: 2;
-    cursor: not-allowed;
+    outline: none; 
 }
 
-.table.available:hover {
+.available:hover {
     background-color: white;
 }
 
-.table.reserved:hover {
+.reserved:hover {
     background-color: #ADAAAA;
 }
 
@@ -115,7 +115,7 @@ input {
     padding-bottom: 7px;
 }
 
-#save {
+.save {
     width: 270px;
     background-color: #008000;
     color: white;
@@ -125,6 +125,7 @@ input {
     margin-left: 20px;
     box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.3);
     border: none;
+    outline: none;
 }
 
 .material-icons {
@@ -132,18 +133,23 @@ input {
     color: #CCC;
     float: right;
     margin-right: 10px;
+    cursor: pointer;
 }
 
-.hidden {
-    width: 40px;
-    height: 20px;
+p {
+    width: 100px;
+    height: 40px;
     background-color: #ADAAAA;
     border: 2px solid black;  
+    border-radius: 5px;
     z-index: 10000;  
-    overflow: auto;
+    text-align: left;
+    line-height: 15px;
+    font-size: 10px;
+    padding-left: 5px;
+    padding-top: 5px;
+    color: black;
     position: absolute;
-}
-
-.visible {
-    visibility: hidden;
+    top: 10px;
+    left: -15px;
 }

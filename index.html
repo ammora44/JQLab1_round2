@@ -11,18 +11,18 @@
 </head>
 <body class="container">
     <div class="head"><header class="header">Table Finder</header></div>
-    <div class="blah"><p class="select">Pick your table now</p></div>
+    <div class="blah"><h3 class="select">Pick your table now</h3></div>
 
     <div class="floorPlan">
-        <div class="table-container"><input type="button" class="table" value="1"></div>
-        <div class="table-container"><input type="button" class="table" value="2"></div>
-        <div class="table-container"><input type="button" class="table" value="3"></div>
-        <div class="table-container"><input type="button" class="table" value="4"></div>
-        <div class="table-container"><input type="button" class="table" value="5"></div>
-        <div class="table-container"><input type="button" class="table" value="6"></div>
-        <div class="table-container"><input type="button" class="table" value="7"></div>
-        <div class="table-container"><input type="button" class="table" value="8"></div>
-        <div class="table-container"><input type="button" class="table" value="9"></div>
+        <div type="button" class="table available" value="1">1</div>
+        <div type="button" class="table available" value="2">2</div>
+        <div type="button" class="table available" value="3">3</div>
+        <div type="button" class="table available" value="4">4</div>
+        <div type="button" class="table available" value="5">5</div>
+        <div type="button" class="table available" value="6">6</div>
+        <div type="button" class="table available" value="7">7</div>
+        <div type="button" class="table available" value="8">8</div>
+        <div type="button" class="table available" value="9">9</div>
     </div>
 
     <form class="popup">
@@ -32,8 +32,9 @@
         <input type="text" id="name" placeholder="Name">
         <input type="phone" id="phone" placeholder="Phone Number">
         <input type="size" id="size" placeholder="Size of Party">
-        <button type="button" id="save">SAVE</button>
+        <button type="button" class="save">SAVE</button>
     </form>
+
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="scripts.js"></script>
 </body>

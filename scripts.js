@@ -1,65 +1,45 @@
 "use strict";
   
-  $(document).ready(() => {
+$(document).ready(() => {
 
-let selectedTable;
+  let selectedTable;
+  let partyName;
+  let partySize;
 
-// GENERAL FORM INFO
 
-  $(".table").click(() => {              // FORM POPS UP WHEN
-    $(".popup").fadeIn(750);                  // ANY BUTTON/TABLE IS CLICKED 
-  });
-
-  $(".table").hover(function(event) {
-    $(event.target).addClass("table hover")
+  // ASSIGNING TABLE NUMBER UPON CLICK & SHOWING FORM
+  $(".table").click((event) => {
+    selectedTable = $(event.target);
+    if ($(selectedTable).hasClass("available")) {
+      $("#table-num").text($(event.target).val())
+      $(".popup").fadeIn(750);
+    }
   })
 
-// CLICKING OUT OF FORM
-
-  $("#trash").click(() => {               // WHEN YOU CLICK ON X
-    $(".popup").fadeOut(750);                   // FORM DISAPEARS
+  // CLICKING X TO GET OUT OF FORM
+  $("#trash").click(() => {
+    $(".popup").fadeOut(750);
   });  
 
- // HIDING THE TABLE
-
- $(".table").hover(function(event) {          // ADDS HOVER FUNCTION ON
-  $(event.target).addClass("table hover")   // AVAILABLE TABLES
-})
-
-// HITTING THE SAVE BUTTON
-
-$("#save").click(() => {               // SAVE BUTTON THAT IS CLICKED 
-  $(".popup").fadeOut(750);                // HIDES FORM
+  // WHEN SAVE IS CLICKED -> HIDES FORM, CHANGES CLASS, LOGS INFO, CLEARS FORM
+  $(".save").click(() => {
+    $(".popup").fadeOut(750);
+    selectedTable.addClass("reserved");
+    selectedTable.removeClass("available");
+    partyName = $("#name").val();
+    partySize = $("#size").val();
+    selectedTable.attr("name", partyName);
+    selectedTable.attr("size", partySize);
+    $("input").val("");
+  })
   
-  console.log(selectedTable);
-  selectedTable.addClass("reserved");
-  let partyName = $("#name").val();        // value of name input
-  let partySize = $("#size").val();       // value of size input
-  console.log(partyName, partySize);
-  selectedTable.parent().append("<p class='hidden'>'${partyName} ${partySize}</p>");
-});
-
-// RESERVED TABLE ACTIONS
-
- $(".table").click((event) => {                      // TABLES ARE ACCESSED & COLORED 
-  
-    selectedTable = $(event.target);
-    $("#table-num").text($(event.target).val())
-   
- })
-
-
-
-
-
-
-
-
-});
-
-
-
-
-
-
+  // HOVER TO SEE RESERVED TABLE INFO
+    $(".table").on("mouseenter", (event) => {
+      if ($(event.target).hasClass("reserved")) {
+        $(event.target).append(`<p>Name: ${$(event.target).attr("name")} Size: ${$(event.target).attr("size")}</p>`);
+      }
+    }).on("mouseleave", (event) => {
+      $("p").remove().html("");
+    })
+  })
 
